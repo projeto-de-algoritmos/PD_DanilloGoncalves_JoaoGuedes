@@ -23,12 +23,14 @@ import item5 from "../assets/item5.png";
 import item6 from "../assets/item6.png";
 import item7 from "../assets/item7.png";
 import item8 from "../assets/item8.png";
+import Knapsack from '../models/knapsack';
 
 const items_images = [item1, item2, item3, item4, item5, item6, item7, item8];
-
+var knapsack = new Knapsack();
 export default function ItemList() {
   const [itemsOnBag, setItemsOnBag] = useState([]);
-
+  
+  
   useEffect(() => {
     console.log(itemsOnBag);
   }, [itemsOnBag]);
@@ -48,6 +50,7 @@ export default function ItemList() {
         addItem={handleAddEvent}
         id={index}
         itemsOnBag={itemsOnBag}
+        itemInfo={knapsack.items[index]}
         image={items_images[index]}
       />
     ));

@@ -1,14 +1,14 @@
 import Item from './item';
-class Knapsack{
+export default class Knapsack{
     constructor(){
         this.result_matrix = [[]];
         this.max_weight = 0;
         this.items = [];
         this.size = 0;
     }
-    setItems(qtd, values, weights){
-        for(let i=0; i<qtd; i++){
-            this.items = [...this.items, Item(weights[i], values[i])];
+    setItems(){
+        for(let i=0; i<8; i++){
+            this.items.push(Item(10, 10));
         }
         this.size = this.items.length;
     }
@@ -24,9 +24,9 @@ class Knapsack{
         for(let i=1; i<this.size; i++){
             for(let j=1; j<this.max_weight; j++){
                 if(this.items[i].size>this.max_weight)
-                    this.result_matrix[i][j] = M[i-1, j];
+                    this.result_matrix[i][j] = this.result_matrix[i-1, j];
                 else
-                this.result_matrix[i][j] = Math.max(M[i-1, j], this.items[i].value+M[i-1, this.items[i].value - this.max_weight]);
+                this.result_matrix[i][j] = Math.max(this.result_matrix[i-1, j], this.items[i].value+this.result_matrix[i-1, this.items[i].value - this.max_weight]);
 
             }
         }
