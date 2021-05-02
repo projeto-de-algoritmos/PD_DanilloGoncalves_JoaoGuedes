@@ -5,6 +5,7 @@ export default class Knapsack{
         this.max_weight = Math.ceil(Math.random() * (30 - 1) + 10);
         this.items = [];
         this.size = 0;
+        this.answer = 0;
         this.setItems();
     }
     setItems(){
@@ -26,22 +27,22 @@ export default class Knapsack{
         }
     }
     run(){
-        console.log(`Matrix: ${this.result_matrix}`);
+        console.log(`Matrix: ${JSON.stringify(this.result_matrix)}`);
         for(var i=1; i<this.size; i++){
             for(var j=1; j<this.max_weight; j++){
-                if(this.items[i].weight>this.max_weight){
-                    console.log(i);
+                if(this.items[i].weight>j){
                     this.result_matrix[`${i}${j}`] = this.result_matrix[`${i-1}${j}`];
                 }
                 else{
-                    console.log(i);
+                    console.log('Valor:',this.items[i].value +
+                        this.result_matrix[`${i-1}${j - this.items[i].weight}`])
                     this.result_matrix[`${i}${j}`] = Math.max(this.result_matrix[`${i-1}${j}`], (this.items[i].value +
-                                                                                     this.result_matrix[`${i-1}${this.max_weight - this.items[i].value}`]
+                                                                                     this.result_matrix[`${i-1}${j - this.items[i].weight}`]
                                                                                      ));
                 }
 
             }
         }
-        console.log(`Result: ${this.result_matrix}`);
+        this.answer = this.result_matrix[`7${this.max_weight-1}`];
     }
 }
