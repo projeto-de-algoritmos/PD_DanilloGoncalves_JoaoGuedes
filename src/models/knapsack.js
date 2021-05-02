@@ -2,7 +2,7 @@ import Item from './item';
 export default class Knapsack{
     constructor(){
         this.result_matrix = {};
-        this.max_weight = Math.ceil(Math.random() * (30 - 1) + 10);
+        this.max_weight = Math.ceil(Math.random() * (100 - 10) + 10);
         this.items = [];
         this.size = 0;
         this.setItems();

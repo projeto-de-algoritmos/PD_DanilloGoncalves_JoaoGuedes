@@ -1,8 +1,14 @@
-import { Center, Image, Box, Flex, Text } from "@chakra-ui/react";
-export default function Item({ id, addItem, itemsOnBag, itemInfo, image }) {
+import { Center, Image, Flex, Text } from "@chakra-ui/react";
+export default function Item({ addItem, itemsOnBag, image, item }) {
   const returnColor = () => {
     if (itemsOnBag) {
-      return itemsOnBag.includes(id) ? "#00FF00" : "#C4C4C4";
+      let itemExits = false;
+      itemsOnBag.forEach((i) => {
+        if (i.id === item.id) {
+          itemExits = true;
+        }
+      });
+      if (itemExits) return "#00FF00";
     }
     return "#C4C4C4";
   };
@@ -12,24 +18,26 @@ export default function Item({ id, addItem, itemsOnBag, itemInfo, image }) {
       h="20vh"
       borderRadius="30"
       bg={returnColor}
-      onClick={() => addItem(id)}
+      onClick={() => addItem(item)}
       _hover={{
-          cursor:"pointer"
+        cursor: "pointer",
       }}
     >
-      <Center 
-       bgColor="yellow" 
-       width="50px" 
-       height="50px" 
-       position="absolute" 
-       display="flex"
-       margin="10px"
-       borderRadius="25px"
-       >
-         {itemInfo?.weight ?? 10}Kg
+      <Center
+        bgColor="yellow"
+        width="50px"
+        height="50px"
+        position="absolute"
+        display="flex"
+        margin="10px"
+        borderRadius="25px"
+      >
+        {item.info.weight ?? 10}Kg
       </Center>
-      <Image src={image}/>
-      <Text position="absolute" alignSelf="flex-end"  margin="10px">${itemInfo?.value ?? 10}</Text>
+      <Image src={image} />
+      <Text position="absolute" alignSelf="flex-end" margin="10px">
+        ${item.info.value ?? 10}
+      </Text>
     </Flex>
   );
 }

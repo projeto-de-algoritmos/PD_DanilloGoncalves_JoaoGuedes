@@ -29,31 +29,38 @@ const items_images = [item1, item2, item3, item4, item5, item6, item7, item8];
 
 const knapsack = new Knapsack();
 export default function ItemList() {
-  const [itemsOnBag, setItemsOnBag] = useState([]);
+  const [itemsOnBag, setItemsOnBag] = useState([]);  
   
+  useEffect(()=>{
+    console.log("O que tem na mochila: ", itemsOnBag);
+  }, [itemsOnBag])
   
   useEffect(() => {
-    console.log(itemsOnBag);
     knapsack.run()
-  }, [itemsOnBag]);
+  }, []);
 
-  const handleAddEvent = (id) => {
-    if (itemsOnBag.includes(id)) {
-      const itemsUpdated = itemsOnBag.filter((item) => item !== id);
+  const handleAddEvent = (item) => {
+    let itemExits = false;
+    itemsOnBag.forEach(i => {
+      if(i.id === item.id){
+        itemExits = true;
+      }
+    })
+    if (itemExits) {
+      const itemsUpdated = itemsOnBag.filter((i) => i.id !== item.id);
       setItemsOnBag(itemsUpdated);
-    } else setItemsOnBag([...itemsOnBag, id]);
+    } else setItemsOnBag([...itemsOnBag, item]);
   };
 
   const renderItems = () => {
     return [0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
       <Item
         img={`item${index}`}
-        key={index}
         addItem={handleAddEvent}
-        id={index}
         itemsOnBag={itemsOnBag}
-        itemInfo={knapsack.items[index]}
+        item={{id: index, info: knapsack.items[index]}}
         image={items_images[index]}
+        key={index}
       />
     ));
   };
