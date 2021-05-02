@@ -15,6 +15,16 @@ import Item from "./item";
 import backpack from "../assets/backpack.svg";
 import leonBazuka from "../assets/leonBazuka.svg";
 import homePageText from "../assets/homePageText";
+import item1 from "../assets/item1.png";
+import item2 from "../assets/item2.png";
+import item3 from "../assets/item3.png";
+import item4 from "../assets/item4.png";
+import item5 from "../assets/item5.png";
+import item6 from "../assets/item6.png";
+import item7 from "../assets/item7.png";
+import item8 from "../assets/item8.png";
+
+const items_images = [item1, item2, item3, item4, item5, item6, item7, item8];
 
 export default function ItemList() {
   const [itemsOnBag, setItemsOnBag] = useState([]);
@@ -38,6 +48,7 @@ export default function ItemList() {
         addItem={handleAddEvent}
         id={index}
         itemsOnBag={itemsOnBag}
+        image={items_images[index]}
       />
     ));
   };

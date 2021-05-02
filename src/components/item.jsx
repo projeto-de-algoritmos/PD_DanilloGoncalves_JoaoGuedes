@@ -1,5 +1,5 @@
-import { Center } from "@chakra-ui/layout";
-export default function Item({ id, addItem, itemsOnBag }) {
+import { Center, Image } from "@chakra-ui/react";
+export default function Item({ id, addItem, itemsOnBag, image }) {
   const returnColor = () => {
     if (itemsOnBag) {
       return itemsOnBag.includes(id) ? "#00FF00" : "#C4C4C4";
@@ -17,7 +17,7 @@ export default function Item({ id, addItem, itemsOnBag }) {
           cursor:"pointer"
       }}
     >
-      <p>Imagem</p>
+      <Image src={image}/>
     </Center>
   );
 }
