@@ -1,5 +1,4 @@
 import { Center } from "@chakra-ui/layout";
-import React, { useState } from "react";
 import ItemList from "../components/item_list";
 
 export default function App() {

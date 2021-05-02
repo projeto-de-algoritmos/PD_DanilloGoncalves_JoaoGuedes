@@ -9,7 +9,6 @@ export default class Knapsack{
         this.setItems();
     }
     setItems(){
-        console.log(`MAx: ${this.max_weight}`);
         for(var i=0; i<8; i++){
             const weight = Math.ceil(Math.random() * ((this.max_weight/3)- 3) + 10);
             const value = Math.ceil(Math.random() * (300 - 1) + 1);
@@ -27,15 +26,12 @@ export default class Knapsack{
         }
     }
     run(){
-        console.log(`Matrix: ${JSON.stringify(this.result_matrix)}`);
         for(var i=1; i<this.size; i++){
             for(var j=1; j<this.max_weight; j++){
                 if(this.items[i].weight>j){
                     this.result_matrix[`${i}${j}`] = this.result_matrix[`${i-1}${j}`];
                 }
                 else{
-                    console.log('Valor:',this.items[i].value +
-                        this.result_matrix[`${i-1}${j - this.items[i].weight}`])
                     this.result_matrix[`${i}${j}`] = Math.max(this.result_matrix[`${i-1}${j}`], (this.items[i].value +
                                                                                      this.result_matrix[`${i-1}${j - this.items[i].weight}`]
                                                                                      ));
