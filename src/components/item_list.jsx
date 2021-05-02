@@ -26,13 +26,15 @@ import item8 from "../assets/item8.png";
 import Knapsack from '../models/knapsack';
 
 const items_images = [item1, item2, item3, item4, item5, item6, item7, item8];
-var knapsack = new Knapsack();
+
+const knapsack = new Knapsack();
 export default function ItemList() {
   const [itemsOnBag, setItemsOnBag] = useState([]);
   
   
   useEffect(() => {
     console.log(itemsOnBag);
+    knapsack.run()
   }, [itemsOnBag]);
 
   const handleAddEvent = (id) => {
@@ -76,7 +78,7 @@ export default function ItemList() {
                 fontWeight="bold"
                 alignSelf="flex-start"
               >
-                Peso Máximo: 30kg
+                Peso Máximo: {knapsack.max_weight}Kg
               </Text>
               <Text
                 color="#FFF"
@@ -85,7 +87,7 @@ export default function ItemList() {
                 fontWeight="bold"
                 alignSelf="flex-start"
               >
-                Peso Atual: 20kg
+                Peso Atual: 20Kg
               </Text>
             </VStack>
             <Spacer />
