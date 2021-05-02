@@ -4,3 +4,4 @@ class Item{
         this.value = value;
     }
 }
+export default Item;
