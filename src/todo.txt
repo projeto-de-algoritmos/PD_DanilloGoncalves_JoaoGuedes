@@ -1,5 +1,0 @@
-- Logica de gerar valores e pesos;
-- Lógica de vitória/derrota;
-- Criar useEffect;
-- Pegar pesos e valores que o usuário selecionar;
-- Música resident evil.

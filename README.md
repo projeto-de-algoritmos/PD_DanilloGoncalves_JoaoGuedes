@@ -1,45 +1,38 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+# PD_Knapsack_Evil_4
 
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
+# Knapsack Evil 4
 
-# NomedoProjeto
-
-**Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+**Número da Lista**: 6<br>
+**Conteúdo da Disciplina**: Programação Dinâmica<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 17/0139981 |  Danillo Gonçalves de Souza |
+| 17/0013910 |  Joao Pedro Jose Santos da Silva Guedes |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O objetivo do projeto é a aplicação dos conteúdos da disciplina Projeto de Algoritmos em um contexto real. O contexto selecionado pela dupla foi medir o peso da mochila ideal. Por trás desta plataforma estão sendo aplicados conceitos como  **Programação Dinâmica**.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+
+<img src="./assets/print1.png">
+<img src="./assets/print2.png">
+<img src="./assets/print3.png">
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: Javascript<br>
+**Framework**: ReactJS<br>
+Para rodar o projeto você precisará instalar na sua máquina:
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/)
 
+Para rodar o projeto basta executar os seguintes comandos
+
+**Utilizando yarn**
+```
+yarn
+yarn start
+```
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
-
-
-
-
+Após executar automaticamente ele abrirá uma aba no seu navegador com o projeto rodando, caso isto não aconteça basta acessar seu localhost com a porta indicada no terminal ao executar os comandos.
